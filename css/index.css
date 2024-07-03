@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+* {
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+
+}
+
+header {
+    color: white;
+    
+    height: 600px;
+
+    
+    background-color: black;
+    
+    
+}
+.titleBox{
+    position: absolute;
+    left: 650px;
+    top: 100px;
+
+
+}
+.mainLogo{
+    height: 300px;
+    width:300px;
+}
+.logo{
+    position: absolute;
+    left: 200px;
+    top: 100px;
+}
+.title{
+    font-size: 6rem;
+    margin-bottom: 10px;
+}
+.slogan {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.main{
+    color:white;
+    background-color: #242424;
+    display: flex;
+    flex-direction: column;
+
+}
+.categories{
+    margin: 50px auto;
+}
+.category{
+    float: left;
+    margin: 5px;
+    padding: 3px 8px;
+    border: #1DB954 2px solid;
+    border-radius: 20px;
+    cursor: pointer;
+}
+div.selected{
+    color: #242424;
+    background-color: #1DB954;
+}
+.songs{
+    width: 500px;
+    margin: 50px auto;
+    background-color: black;
+}
+.song{
+    margin: 10px auto;
+    background-color: #242424;
+    width: 400px;
+}
+

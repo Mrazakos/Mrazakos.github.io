@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Populify</title>
+</head>
+<body>
+    <nav>
+        <div class="logo"></div>
+        
+    </nav>
+    <header>
+        <div class="header logo">
+            <img src="images/spotifyLogo.png" alt="spotifyLogo" class="mainLogo">
+        </div>
+        <div class="header titleBox">
+            <h1 class="title">Populify</h1>
+            <h2 class="slogan">Where you can find everything thats popular enough!</h2>
+            <p class="description">
+                If all you ever wanted to do was follow the latest trends in the music genre ur interested in, wait no more. <br>
+                Populify is here to help you fulfill all your needs to be corny and basic. :)
+            </p>
+            
+        </div>
+    </header>
+    <section class="main">
+        <div class="categories">
+            <div onclick="hideCategory('all')" id="all" class="category selected">All</div>
+            <div onclick="showcaseCategory('pop')" id="pop" class="category non-selected">Pop</div>
+            <div onclick="showcaseCategory('hip-hop')" id="hip-hop" class="category non-selected">Hip-Hop</div>
+            <div onclick="showcaseCategory('rnb')" id="rnb" class="category non-selected">RnB</div>
+            <div onclick="showcaseCategory('rock')" id="rock" class="category non-selected">Rock</div>
+        </div>
+
+        <div class="songs">
+            <div class="song">
+                Kodak Black
+                <br>
+                Kodak Black
+            </div>
+        </div>
+    </section>
+    <script src="index.js"></script>
+</body>
+</html>
