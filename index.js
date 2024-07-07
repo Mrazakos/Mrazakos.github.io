@@ -1,12 +1,15 @@
-let categories = ['all'];
+const categories = ['all'];
 
+
+
+//adding and deleting categories
 
 function showcaseCategory(category){
     let showcaseCategory = document.getElementById(category);
     showcaseCategory.classList.replace("non-selected", "selected");
     showcaseCategory.setAttribute( "onClick", "javascript: hideCategory('" + category + "');" );
     categories[categories.length] = category;
-    console.log(categories);
+
 }
 
 function hideCategory(category){
@@ -22,5 +25,9 @@ function hideCategory(category){
         }
     }
     categories = modifiedCategories;
-    console.log(categories);
+
 }
+
+
+
+
