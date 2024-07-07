@@ -5,54 +5,32 @@ const params = new URLSearchParams(window.location.search);
 const clientSecret = "c55e2db3963147e8aa1ed3a014c08d1e";
 const code = params.get("code");
 
-if (!code) {
-    redirectToAuthCodeFlow(clientId);
-} else {
-    
-    const accessToken = await getAccessToken(clientId, clientSecret);
-    let top50 = await getMostPopular(accessToken);
-    top50 = top50["items"];
-    console.log(top50);
-    displaySongs(top50);
 
     
+const accessToken = await getAccessToken(clientId, clientSecret);
+const queryString = window.location.search;
+const genre = new URLSearchParams(queryString).get("genre");
+let top50 = undefined;
+switch(genre){
+    case "all": top50 = await getMostPopular(accessToken, "37i9dQZEVXbMDoHDwVN2tF");
+    break;
+    case "pop": top50 = await getMostPopular(accessToken, "37i9dQZF1DX2vTOtsQ5Isl");
+    break;
+    case "hiphop": top50 = await getMostPopular(accessToken, "5TZkls9cEOzWDR6qCxwDot");
+    break;
+    case "rnb": top50 = await getMostPopular(accessToken, "3SsPWyQnAh1ccWEXZPYaCY");
+    break;
+    case "rock": top50 = await getMostPopular(accessToken, "1k59k1PJIk5ZJ6ppbFuzgS");
+    break;
 }
 
-export async function redirectToAuthCodeFlow(clientId) {
-    const verifier = generateCodeVerifier(128)
-    const challenge = await generateCodeChallenge(verifier);
+top50 = top50["items"];
+console.log(top50);
+displaySongs(top50);
 
-    localStorage.setItem("verifier", verifier);
+    
 
-    const params = new URLSearchParams();
-    params.append("client_id", clientId);
-    params.append("response_type", "code");
-    params.append("redirect_uri", "http://localhost:5173/callback");
-    params.append("scope", "user-read-private user-read-email");
-    params.append("code_challenge_method", "S256");
-    params.append("code_challenge", challenge);
 
-    document.location = `https://accounts.spotify.com/authorize?${params.toString()}`;
-}
-
-function generateCodeVerifier(length) {
-    let text = '';
-    let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-
-    for (let i = 0; i < length; i++) {
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
-    }
-    return text;
-}
-
-async function generateCodeChallenge(codeVerifier) {
-    const data = new TextEncoder().encode(codeVerifier);
-    const digest = await window.crypto.subtle.digest('SHA-256', data);
-    return btoa(String.fromCharCode.apply(null, [...new Uint8Array(digest)]))
-        .replace(/\+/g, '-')
-        .replace(/\//g, '_')
-        .replace(/=+$/, '');
-}
 
 export async function getAccessToken(clientId, clientSecret) {
     const verifier = localStorage.getItem("verifier");
@@ -75,26 +53,8 @@ export async function getAccessToken(clientId, clientSecret) {
     return access_token;
 }
 
-export async function getGenre(accessToken, genre){
-    const result = await fetch("https://api.spotify.com/v1/browse/categories/" + genre, {
-        method: "GET", headers: { Authorization: `Bearer ${accessToken}` }
-    });
-    const { href } = await result.json();
-
-    return href;
-}
-
-export async function getGenreData(accessToken, href){
-    const result = await fetch(href, {
-        method: "GET", headers: { Authorization: `Bearer ${accessToken}` }
-    });
-    
-
-    return await result.json();
-}
-
-export async function getMostPopular(accessToken){
-    const result = await fetch("https://api.spotify.com/v1/playlists/37i9dQZEVXbMDoHDwVN2tF", {
+export async function getMostPopular(accessToken, playlistId){
+    const result = await fetch("https://api.spotify.com/v1/playlists/" + playlistId, {
         method: "GET", headers: { Authorization: `Bearer ${accessToken}` }
     });
     
@@ -112,8 +72,15 @@ function displaySongs(top50){
                     <h3 class="songName">${track.name}</h3>
 
                     <h4 class="artist">`;
+        let artists = 0
         for(const artist of track.artists){
-            html += artist.name + " ";
+            artists++;
+            if(artists > 1){
+                html += ", " + artist.name;
+            } else{
+                html += artist.name;
+            }
+            
         }
 
                     

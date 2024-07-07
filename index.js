@@ -1,14 +1,28 @@
 const categories = ['all'];
 
-
+let ol = document.getElementsByClassName("category");
+const queryString = window.location.search;
+const genre = new URLSearchParams(queryString).get("genre");
+for(const li of ol){
+    console.log(li);
+    if(li.id == genre){
+        if(!li.classList.contains("selected")){
+            li.classList.replace("non-selected", "selected");
+        }
+    } else{
+        if(!li.classList.contains("non-selected")){
+            li.classList.replace( "selected", "non-selected");
+        }
+    }
+}
+console.log(genre);
 
 //adding and deleting categories
 
 function showcaseCategory(category){
-    let showcaseCategory = document.getElementById(category);
-    showcaseCategory.classList.replace("non-selected", "selected");
-    showcaseCategory.setAttribute( "onClick", "javascript: hideCategory('" + category + "');" );
-    categories[categories.length] = category;
+    window.location = "?genre=" + category;
+    
+    
 
 }
 

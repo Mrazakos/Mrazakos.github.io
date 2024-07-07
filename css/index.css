@@ -6,7 +6,11 @@
     font-style: normal;
     margin: 0;
     padding: 0;
+    
 
+}
+body{
+    background-color: #242424;
 }
 
 header {
@@ -45,21 +49,34 @@ header {
 }
 
 .main{
+    padding-top: 100px;
     color:white;
     background-color: #242424;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    width:1500px;
+    margin-inline: auto;
 
+}
+h1.genretitle{
+    font-size: 5rem;
+    font-weight: 900;
+
+    
 }
 .categories{
     margin: 50px auto;
+
 }
 .category{
-    float: left;
-    margin: 5px;
-    padding: 3px 8px;
+    display: inline-block;
+    max-width: 150px;
+    text-align: center;
+    font-size: 2rem;
+    margin: 10px;
+    padding: 6px 16px;
     border: #1DB954 2px solid;
-    border-radius: 20px;
+    border-radius: 50px;
     cursor: pointer;
 }
 div.selected{
@@ -69,21 +86,39 @@ div.selected{
 .songs{
     width: 500px;
     margin: 50px auto;
-    padding: 30px;
-    background-color: black;
+    padding: 0;
+    border: #1DB954 10px solid;
+    border-radius: 20px;
 }
 .song{
+    vertical-align: middle;
     
-    padding: 5px;
-    background-color: #242424;
-    width: 350px;
+    background-color: none;
+    width: 300px;
     height: 100px;
     float: right;
     display: flex;
     flex-direction: row;
 
 }
-li:nth-child(even) div.song{
+
+.songName{
+    font-weight: 700;
+    font-size:1.3rem;
+}
+.artist{
+    color: rgb(100, 100, 100);
+}
+.album{
+    margin-top: 10px;
+}
+
+li{
+    padding: 20px;
+    background-color: #242424;
+    margin: 0;
+}
+li:nth-child(even){
     background-color: black;
 }
 
@@ -95,13 +130,21 @@ ol{
     list-style-position: inside;
 
 }
-li{
-    margin: 6px;
-}
+
+
 
 li::marker{
     font-size: 5rem;
     font-weight: 1000;
 
 }
+.container{
+    margin-top: 100px;
+    width: 600px;
+    height: 700px;
+    margin-inline: auto;
+
+    padding: 20px;
+}
+
 
