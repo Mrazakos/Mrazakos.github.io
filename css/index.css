@@ -69,11 +69,39 @@ div.selected{
 .songs{
     width: 500px;
     margin: 50px auto;
+    padding: 30px;
     background-color: black;
 }
 .song{
-    margin: 10px auto;
+    
+    padding: 5px;
     background-color: #242424;
-    width: 400px;
+    width: 350px;
+    height: 100px;
+    float: right;
+    display: flex;
+    flex-direction: row;
+
+}
+li:nth-child(even) div.song{
+    background-color: black;
+}
+
+hr{
+    width: 300px;
+    float: right;
+}
+ol{
+    list-style-position: inside;
+
+}
+li{
+    margin: 6px;
+}
+
+li::marker{
+    font-size: 5rem;
+    font-weight: 1000;
+
 }
 
