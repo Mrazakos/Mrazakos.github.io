@@ -1,4 +1,4 @@
-const categories = ['all'];
+
 
 let ol = document.getElementsByClassName("category");
 const queryString = window.location.search;
@@ -21,9 +21,6 @@ console.log(genre);
 
 function showcaseCategory(category){
     window.location = "?genre=" + category;
-    
-    
-
 }
 
 function hideCategory(category){

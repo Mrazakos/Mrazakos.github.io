@@ -22,6 +22,7 @@ switch(genre){
     break;
     case "rock": top50 = await getMostPopular(accessToken, "1k59k1PJIk5ZJ6ppbFuzgS");
     break;
+    default: displayNothing(); 
 }
 
 top50 = top50["items"];
@@ -62,6 +63,14 @@ export async function getMostPopular(accessToken, playlistId){
     return tracks;
 }
 
+function displayNothing(){
+    let html=`<div class="nothing">
+        <h1 class="nothingText">There are no tracks here!</h1>
+        </div>`;
+    const songs = document.querySelector(".songs");
+    songs.innerHTML += html;
+}
+
 function displaySongs(top50){
     for(const song of top50){
         const track = song.track;
@@ -70,7 +79,6 @@ function displaySongs(top50){
             <div class="song">
                 <div class="songData">
                     <h3 class="songName">${track.name}</h3>
-
                     <h4 class="artist">`;
         let artists = 0
         for(const artist of track.artists){
