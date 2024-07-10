@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+* {
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+
+}
+
+body{
+    background-color: transparent;
+}
+
+header {
+    color: rgb(168, 0, 0);
+    height: 600px;
+    background-color: wheat;
+    
+}
+.titleBox{
+    position: absolute;
+    left: 650px;
+    top: 100px;
+
+
+}
+.mainLogo{
+    height: 300px;
+    width:300px;
+    background-color: wheat;
+}
+.logo{
+    z-index: 1000;
+    
+
+    position: absolute;
+    left: 200px;
+    top: 100px;
+    width: 300px;
+    height: 300px;
+}
+.title{
+    font-size: 6rem;
+    margin-bottom: 10px;
+}
+.slogan {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.textboxTitle{
+    font-size: 3rem;
+    margin-bottom: 50px;
+}
+
+main{
+    padding:100px;
+    color: wheat;
+    background-color: rgb(168, 0, 0, 0.7);
+    display: grid;
+    place-items: center;
+    align-items: center;
+}
+
+textarea{
+    font-size: 1rem;
+    width: 800px;
+    height: 100px;
+}
+
+.generate{
+    margin:50px 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgb(168, 0, 0);
+    background-color: antiquewhite;
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+.hidden{
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(20%);
+    transition:1s;
+}
+.show{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+
